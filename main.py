@@ -16,7 +16,7 @@ def home():
         transaction = "INSERT INTO messages VALUES ('{}', '{}')".format(
             request.remote_addr,
             request.form['content'],
-        )
+        ).strip("'")
         c.execute(transaction)
         conn.commit()
 
